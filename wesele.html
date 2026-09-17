@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ślub i Wesele - Aga & Przemek</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-cream: #faf7f2;
+      --card-bg: rgba(255, 255, 255, 0.96);
+      --dahlia-berry: #892843;
+      --eucalyptus-green: #2d4034;
+      --eucalyptus-soft: #63776b;
+      --real-gold: #c39d54;
+      --real-gold-sheen: linear-gradient(135deg, #dfba73 0%, #c39d54 50%, #947230 100%);
+      --gold-border: rgba(195, 157, 84, 0.35);
+      --shadow-paper: 0 12px 34px rgba(45, 64, 52, 0.07);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(137, 40, 67, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(45, 64, 52, 0.05) 0%, transparent 40%);
+      color: var(--eucalyptus-green);
+      line-height: 1.65;
+      padding: 20px 14px 110px 14px;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 550px;
+      animation: fadeIn 0.9s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PŁYWAJĄCY PASEK NAWIGACJI */
+    .quick-nav {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 40px;
+      padding: 8px 18px;
+      display: flex;
+      gap: 18px;
+      box-shadow: 0 10px 25px rgba(45, 64, 52, 0.12);
+      z-index: 999;
+    }
+
+    .quick-nav a {
+      color: var(--eucalyptus-green);
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      transition: color 0.2s;
+    }
+
+    .quick-nav a svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--real-gold);
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s, transform 0.2s;
+    }
+
+    .quick-nav a:hover { color: var(--dahlia-berry); }
+    .quick-nav a:hover svg {
+      stroke: var(--dahlia-berry);
+      transform: scale(1.1);
+    }
+
+    /* NAGŁÓWEK I ELEGANCKI MONOGRAM */
+    header {
+      text-align: center;
+      margin: 10px 0 28px 0;
+      position: relative;
+    }
+
+    .gold-crest {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 12px auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .crest-frame {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--real-gold);
+      border-radius: 50%;
+      box-shadow: 0 4px 14px rgba(195, 157, 84, 0.15);
+    }
+
+    .crest-frame-inner {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      border: 1px dashed var(--gold-border);
+      border-radius: 50%;
+    }
+
+    .wreath-initials {
+      position: relative;
+      z-index: 1;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--dahlia-berry);
+      letter-spacing: 2px;
+    }
+
+    .subtitle-top {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--real-gold);
+      margin-bottom: 2px;
+    }
+
+    h1.script-title {
+      font-family: 'Alex Brush', cursive;
+      font-size: 4.8rem;
+      font-weight: 400;
+      color: var(--dahlia-berry);
+      line-height: 1.05;
+      margin: 0;
+      text-shadow: 0 2px 10px rgba(137, 40, 67, 0.12);
+    }
+
+    .wedding-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--eucalyptus-soft);
+      margin-top: 2px;
+    }
+
+    .gold-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 10px auto 14px auto;
+      width: 70%;
+      color: var(--real-gold);
+    }
+
+    .gold-divider .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--real-gold), transparent);
+    }
+
+    .gold-divider span {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+    }
+
+    /* KARTY */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 34px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-paper);
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      border: 1px solid rgba(195, 157, 84, 0.18);
+      border-radius: calc(var(--radius) - 6px);
+      pointer-events: none;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: var(--eucalyptus-green);
+      text-align: center;
+      margin-bottom: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    /* LICZNIK */
+    .countdown-card {
+      text-align: center;
+      background: #ffffff;
+      border: 1.5px solid var(--gold-border);
+    }
+
+    .countdown-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dahlia-berry);
+      margin-bottom: 12px;
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .time-box {
+      background: var(--bg-cream);
+      border: 1px solid rgba(195, 157, 84, 0.3);
+      border-radius: 12px;
+      padding: 10px 8px;
+      min-width: 66px;
+    }
+
+    .time-box span {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--dahlia-berry);
+      line-height: 1;
+    }
+
+    .time-box small {
+      font-size: 0.65rem;
+      color: var(--eucalyptus-soft);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ZDJĘCIA */
+    .hero-photo-wrapper {
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      border: 4px solid #fff;
+      outline: 1px solid var(--gold-border);
+      box-shadow: 0 4px 18px rgba(45, 64, 52, 0.08);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .gallery-item {
+      border: 3px solid #fff;
+      outline: 1px solid var(--gold-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      text-align: center;
+      color: var(--eucalyptus-soft);
+      font-size: 1.15rem;
+      margin-top: 16px;
+      padding: 0 10px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin: 16px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--real-gold), rgba(195, 157, 84, 0.2));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--dahlia-berry);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 3px var(--bg-cream);
+    }
+
+    .timeline-dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e28766;
+    }
+
+    .timeline-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dahlia-berry);
+      display: inline-block;
+      margin-bottom: 2px;
+    }
+
+    .timeline-desc strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--eucalyptus-green);
+    }
+
+    .timeline-desc span {
+      font-size: 0.85rem;
+      color: var(--eucalyptus-soft);
+    }
+
+    /* PRZYCISKI */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      text-align: center;
+      background: var(--real-gold-sheen);
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+      text-decoration: none;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 4px 16px rgba(148, 114, 48, 0.28);
+      transition: all 0.25s ease;
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .btn:hover {
+      box-shadow: 0 6px 20px rgba(148, 114, 48, 0.38);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--eucalyptus-green);
+      border: 1.5px solid var(--real-gold);
+      box-shadow: none;
+      text-shadow: none;
+    }
+
+    .btn-secondary svg { stroke: var(--real-gold); }
+    .btn-secondary:hover { background: var(--bg-cream); }
+
+    .btn-small {
+      display: inline-flex;
+      width: auto;
+      padding: 8px 16px;
+      font-size: 0.82rem;
+    }
+
+    /* WI-FI */
+    .wifi-card {
+      background: var(--bg-cream);
+      border: 1px dashed var(--real-gold);
+      border-radius: 12px;
+      padding: 14px 20px;
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wifi-pass {
+      font-family: monospace;
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--dahlia-berry);
+      letter-spacing: 1px;
+    }
+
+    .wifi-hint {
+      font-size: 0.72rem;
+      color: var(--eucalyptus-soft);
+      margin-top: 3px;
+    }
+
+    /* DRINKI */
+    .drink-card {
+      background: #fff;
+      border: 1px solid var(--gold-border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+    }
+    .drink-card:last-child { margin-bottom: 0; }
+    .drink-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+    .drink-name {
+      font-weight: 600;
+      color: var(--eucalyptus-green);
+      font-size: 0.95rem;
+    }
+    .drink-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      background: rgba(45, 64, 52, 0.08);
+      color: var(--eucalyptus-green);
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .drink-desc {
+      font-size: 0.85rem;
+      color: var(--eucalyptus-soft);
+    }
+
+    /* FAQ */
+    details {
+      border-bottom: 1px solid var(--gold-border);
+      padding: 12px 0;
+    }
+    details:last-child { border-bottom: none; }
+    summary {
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .faq-indicator {
+      width: 16px;
+      height: 16px;
+      stroke: var(--real-gold);
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.25s ease;
+    }
+    details[open] summary .faq-indicator { transform: rotate(45deg); }
+    details p {
+      font-size: 0.85rem;
+      color: var(--eucalyptus-soft);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    /* ŚWIADKOWIE */
+    .witness-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .witness-box {
+      background: #ffffff;
+      border: 1px solid var(--gold-border);
+      padding: 14px 10px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .witness-badge {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--dahlia-berry);
+      font-weight: 600;
+    }
+    .witness-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin: 2px 0 6px 0;
+    }
+    .witness-link {
+      font-size: 0.82rem;
+      color: var(--real-gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid var(--gold-border);
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--bg-cream);
+    }
+    .witness-link svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--real-gold);
+      fill: none;
+      stroke-width: 1.6;
+    }
+
+    /* FORMULARZ RSVP */
+    .form-group { margin-bottom: 14px; }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1.5px solid var(--gold-border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #fafafa;
+      outline: none;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--dahlia-berry);
+      background: #fff;
+    }
+    .checkbox-group {
+      margin: 12px 0;
+      background: var(--bg-cream);
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--gold-border);
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .checkbox-item:last-child { margin-bottom: 0; }
+
+    #rsvp-success {
+      display: none;
+      text-align: center;
+      padding: 24px 10px;
+      animation: fadeIn 0.5s ease;
+    }
+    #rsvp-success svg {
+      width: 44px;
+      height: 44px;
+      stroke: var(--real-gold);
+      fill: none;
+      stroke-width: 1.4;
+      margin-bottom: 8px;
+    }
+    #rsvp-success h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--dahlia-berry);
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--eucalyptus-soft);
+      margin-top: 24px;
+    }
+
+    @media (min-width: 768px) {
+      body { padding: 40px 20px 110px 20px; }
+      .container { max-width: 620px; }
+      h1.script-title { font-size: 5.4rem; }
+      .card { padding: 38px 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAWIGACJA -->
+  <nav class="quick-nav">
+    <a href="#plan">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+      Plan
+    </a>
+    <a href="#dojazd">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+      Dojazd
+    </a>
+    <a href="#wifi">
+      <svg viewBox="0 0 24 24"><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.86a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><circle cx="12" cy="20" r="1" fill="var(--real-gold)"/></svg>
+      Wi-Fi
+    </a>
+    <a href="#rsvp">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+      RSVP
+    </a>
+    <a href="#zdjecia">
+      <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      Zdjęcia
+    </a>
+  </nav>
+
+  <div class="container">
+    
+    <!-- NAGŁÓWEK -->
+    <header>
+      <!-- Złocisty emblemat monogramu A & P -->
+      <div class="gold-crest">
+        <div class="crest-frame"></div>
+        <div class="crest-frame-inner"></div>
+        <div class="wreath-initials">A & P</div>
+      </div>
+
+      <p class="subtitle-top">Wesele w Ogrodzie</p>
+      <h1 class="script-title">Aga & Przemek</h1>
+      <p class="wedding-date">16 Czerwca 2028 • Warszawa</p>
+      
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦ ✦ ✦</span>
+        <div class="line"></div>
+      </div>
+
+      <!-- ZAPIS DO KALENDARZA -->
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a class="btn btn-secondary btn-small" 
+           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%C5%9Alub+Agi+i+Przemka&dates=20280616T133000Z/20280617T030000Z&location=Ko%C5%9Bci%C3%B3%C5%82+%C5%9Bw.+Anny%2C+Warszawa" 
+           target="_blank">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Google Calendar
+        </a>
+        <a class="btn btn-secondary btn-small" href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Ślub Agi i Przemka%0ADESCRIPTION:Cieszymy się na wspólne świętowanie!%0ALOCATION:Kościół św. Anny, Warszawa%0ADTSTART:20280616T133000Z%0ADTEND:20280617T030000Z%0AEND:VEVENT%0AEND:VCALENDAR" download="slub-agi-i-przemka.ics">
+          <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.87c.66-.82 1.11-1.96.99-3.11-1 .04-2.16.66-2.84 1.46-.59.68-1.11 1.79-.97 2.88 1.11.09 2.19-.57 2.82-1.23z"/></svg>
+          Apple / iCal
+        </a>
+      </div>
+    </header>
+
+    <!-- LICZNIK -->
+    <div class="card countdown-card">
+      <div class="countdown-label">Do uroczystości pozostało:</div>
+      <div class="countdown-grid">
+        <div class="time-box"><span id="days">00</span><small>Dni</small></div>
+        <div class="time-box"><span id="hours">00</span><small>Godz.</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>Min.</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>Sek.</small></div>
+      </div>
+    </div>
+
+    <!-- ZDJĘCIA -->
+    <section class="card">
+      <div class="hero-photo-wrapper">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Para Młoda">
+      </div>
+      <p class="quote">„Miłość rośnie powoli jak ogród – pielęgnowana z czułością rozkwita najpiękniej.”</p>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Zdjęcie 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80" alt="Zdjęcie 2">
+        </div>
+      </div>
+    </section>
+
+    <!-- HARMONOGRAM -->
+    <section class="card" id="plan">
+      <h2>Plan Dnia</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">15:30</div>
+          <div class="timeline-desc">
+            <strong>Ceremonia Zaślubin</strong>
+            <span>Kościół św. Anny, Krakowskie Przedmieście</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">17:00</div>
+          <div class="timeline-desc">
+            <strong>Powitanie w Ogrodzie & Obiad</strong>
+            <span>Przybycie do Dworku pod Lipami</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">21:00</div>
+          <div class="timeline-desc">
+            <strong>Tort & Zimne Ognie na Tarasie</strong>
+            <span>Słodki toast w blasku światełek</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">00:00</div>
+          <div class="timeline-desc">
+            <strong>Oczepiny & Barszcz z Pasztecikiem</strong>
+            <span>Zabawa do białego rana!</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">14:00</div>
+          <div class="timeline-desc">
+            <strong>Poprawiny w Altanie (Sobota)</strong>
+            <span>Wspólny luźny grill i lemoniada</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOJAZD -->
+    <section class="card" id="dojazd">
+      <h2>Lokalizacja & Dojazd</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+
+      <div style="margin-bottom: 12px;">
+        <p style="font-size: 0.92rem; margin-bottom: 2px;"><strong>Kościół św. Anny:</strong></p>
+        <p style="font-size: 0.83rem; color: var(--eucalyptus-soft); margin-bottom: 8px;">Krakowskie Przedmieście 68, Warszawa</p>
+        <a class="btn btn-secondary" href="https://maps.google.com" target="_blank">
+          <svg viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Nawiguj do kościoła
+        </a>
+      </div>
+
+      <div style="height: 14px;"></div>
+
+      <div>
+        <p style="font-size: 0.92rem; margin-bottom: 2px;"><strong>Dworek pod Lipami (Sala & Ogród):</strong></p>
+        <p style="font-size: 0.83rem; color: var(--eucalyptus-soft); margin-bottom: 8px;">ul. Weselna 12, Warszawa</p>
+        <a class="btn" href="https://maps.google.com" target="_blank">
+          <svg viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Nawiguj na salę weselną
+        </a>
+        <a class="btn btn-secondary btn-small" style="width: 100%; margin-top: 8px;" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location" target="_blank">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="8" rx="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/><path d="M5 11l2-5h10l2 5"/></svg>
+          Zamów przejazd na salę
+        </a>
+      </div>
+    </section>
+
+    <!-- NOCLEG & TRANSPORT -->
+    <section class="card">
+      <h2>Nocleg & Transport</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <p style="font-weight: 600; font-size: 0.92rem;">Nocny Bus powrotny:</p>
+        <p style="font-size: 0.83rem; color: var(--eucalyptus-soft);">
+          Kursy powrotne do centrum Warszawy sprzed dworku: <strong>01:00, 03:00 oraz 04:30</strong>.
+        </p>
+      </div>
+      <div>
+        <p style="font-weight: 600; font-size: 0.92rem;">Pokoje w Dworku:</p>
+        <p style="font-size: 0.83rem; color: var(--eucalyptus-soft);">
+          Rabat 15% na nocleg na hasło: <strong style="color: var(--dahlia-berry);">WESELE-AGA-PRZEMEK</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- KOKTAJLE -->
+    <section class="card">
+      <h2>Karta Koktajli</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+      
+      <div class="drink-card">
+        <div class="drink-header">
+          <span class="drink-name">Eukaliptus & Gin (Aga)</span>
+          <span class="drink-tag">Botanical & Fresh</span>
+        </div>
+        <div class="drink-desc">Botaniczny gin, syrop z liści eukaliptusa, prosecco, limonka i kruszony lód</div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-header">
+          <span class="drink-name">Złota Dalia (Przemek)</span>
+          <span class="drink-tag">Classic</span>
+        </div>
+        <div class="drink-desc">Burbon, aromatic bitters, miód lipowy z pasieki, skórka pomarańczy</div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-header">
+          <span class="drink-name">Mieczykowe Orzeźwienie</span>
+          <span class="drink-tag">0% Mocktail</span>
+        </div>
+        <div class="drink-desc">Syrop z kwiatów czarnego bzu, limonka, świeży ogórek, gałązka eukaliptusa, woda musująca</div>
+      </div>
+    </section>
+
+    <!-- WI-FI & PREZENTY -->
+    <section class="card" id="wifi" style="text-align: center;">
+      <h2>Wskazówki dla Gości</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <p style="font-size: 0.88rem; font-weight: 500; margin-bottom: 6px;">Wi-Fi w dworku i ogrodzie:</p>
+        <div class="wifi-card" onclick="copyWifi()">
+          <span class="wifi-pass" id="wifiPass">DworekGoscie2028</span>
+          <span class="wifi-hint" id="wifiHint">Dotknij, aby skopiować hasło</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-size: 0.88rem; font-weight: 500; margin-bottom: 4px;">Zamiast kwiatów ciętych:</p>
+        <p style="font-size: 0.83rem; color: var(--eucalyptus-soft); max-width: 380px; margin: 0 auto;">
+          Nasz ogród tonie już w daliach i mieczykach. Będziemy bardzo wdzięczni za butelkę Waszego ulubionego wina lub los na loterię.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="card">
+      <h2>Częste Pytania</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+
+      <details>
+        <summary>
+          Czy wesele odbywa się z dziećmi?
+          <svg class="faq-indicator" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <p>Kochamy Wasze pociechy, jednak przyjęcie weselne planujemy wyłącznie w gronie dorosłych.</p>
+      </details>
+      <details>
+        <summary>
+          Jaki obowiązuje dress code?
+          <svg class="faq-indicator" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <p>Elegancki strój wieczorowy. Motywy florystyczne, zwiewne kreacje i kolory ogrodu będą wyglądać zjawiskowo.</p>
+      </details>
+      <details>
+        <summary>
+          Czy parking na miejscu jest bezpłatny?
+          <svg class="faq-indicator" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <p>Tak, przed salą znajduje się bezpłatny, zacieniony parking na cały weekend.</p>
+      </details>
+      <details>
+        <summary>
+          Co z poprawinami?
+          <svg class="faq-indicator" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <p>Zapraszamy w sobotę od 14:00 do altany ogrodowej na grilla – obowiązuje swobodne ubranie.</p>
+      </details>
+    </section>
+
+    <!-- FORMULARZ RSVP -->
+    <section class="card" id="rsvp">
+      <h2>Potwierdź Obecność</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--eucalyptus-soft); text-align: center; margin-bottom: 16px;">
+        Prosimy o potwierdzenie do <strong>15 Maja 2028</strong>.
+      </p>
+
+      <form id="wedding-form" action="https://formspree.io/f/twoj_id_formularza" method="POST">
+        <div class="form-group">
+          <label for="names">Imiona i Nazwiska Gości:</label>
+          <input type="text" id="names" name="names" placeholder="np. Anna i Jan Kowalscy" required>
+        </div>
+
+        <div class="form-group">
+          <label>Czy będziecie z nami świętować?</label>
+          <select name="obecnosc">
+            <option value="tak">Z wielką radością przybędziemy!</option>
+            <option value="nie">Niestety nie możemy dotrzeć</option>
+          </select>
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="poprawiny" value="tak" checked> Będziemy również na grillu (poprawiny)
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="nocleg" value="tak"> Korzystamy z noclegu w dworku
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="diet">Dieta / Alergie pokarmowe:</label>
+          <input type="text" id="diet" name="diet" placeholder="np. wegetariańska, bez glutenu">
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Ulubiona piosenka do tańca:</label>
+          <textarea id="notes" name="notes" rows="2" placeholder="Twój pewniak na parkiet..."></textarea>
+        </div>
+
+        <button type="submit" id="rsvp-submit-btn" class="btn">
+          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Wyślij potwierdzenie
+        </button>
+      </form>
+
+      <div id="rsvp-success">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <h3>Dziękujemy za odpowiedź!</h3>
+        <p style="font-size: 0.9rem; color: var(--eucalyptus-soft);">Twoje potwierdzenie dotarło do Pary Młodej.</p>
+      </div>
+    </section>
+
+    <!-- KONTAKT ZE ŚWIADKAMI -->
+    <section class="card">
+      <h2>Kontakt w Dniu Ślubu</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+
+      <p style="font-size: 0.83rem; color: var(--eucalyptus-soft); text-align: center; margin-bottom: 12px;">
+        W dniu ślubu prosimy o kontakt ze Świadkami:
+      </p>
+      <div class="witness-grid">
+        <div class="witness-box">
+          <div class="witness-badge">Świadkowa</div>
+          <div class="witness-name">Kasia</div>
+          <a class="witness-link" href="tel:+48123456789">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Zadzwoń
+          </a>
+        </div>
+        <div class="witness-box">
+          <div class="witness-badge">Świadek</div>
+          <div class="witness-name">Piotr</div>
+          <a class="witness-link" href="tel:+48987654321">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Zadzwoń
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZDJĘCIA -->
+    <section class="card" id="zdjecia" style="text-align: center;">
+      <h2>Wspólna Galeria</h2>
+      <div class="gold-divider">
+        <div class="line"></div>
+        <span>✦</span>
+        <div class="line"></div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--eucalyptus-soft); margin-bottom: 12px;">
+        Uchwyciłeś piękny kadr w ogrodzie lub zabawę na parkiecie? Wgraj zdjęcia do wspólnego albumu.
+      </p>
+      <a class="btn btn-secondary" href="https://drive.google.com" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+        Wgraj zdjęcia z wesela
+      </a>
+    </section>
+
+    <!-- STOPKA -->
+    <footer>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; letter-spacing: 1px; color: var(--dahlia-berry);">Do zobaczenia w naszym ogrodzie</p>
+      <p style="font-size: 0.75rem; margin-top: 6px; opacity: 0.7;">Aga & Przemek • 2028</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // 1. LICZNIK: 16 Czerwca 2028, godzina 15:30 (miesiąc czerwiec = 5 w JS)
+    const weddingDate = new Date(2028, 5, 16, 15, 30).getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+      if (diff > 0) {
+        document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 2. KOPIOWANIE WI-FI
+    function copyWifi() {
+      const pass = document.getElementById("wifiPass").innerText;
+      navigator.clipboard.writeText(pass).then(() => {
+        const hint = document.getElementById("wifiHint");
+        hint.innerText = "✓ Skopiowano hasło!";
+        hint.style.color = "var(--dahlia-berry)";
+        setTimeout(() => {
+          hint.innerText = "Dotknij, aby skopiować hasło";
+          hint.style.color = "var(--eucalyptus-soft)";
+        }, 2500);
+      });
+    }
+
+    // 3. WYSYŁANIE FORMULARZA AJAX
+    const form = document.getElementById('wedding-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('rsvp-submit-btn');
+      btn.innerText = "Wysyłanie...";
+      btn.disabled = true;
+
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('rsvp-success').style.display = 'block';
+        } else {
+          alert('Wystąpił błąd. Spróbuj ponownie lub skontaktuj się ze Świadkiem.');
+          btn.innerText = "Wyślij potwierdzenie";
+          btn.disabled = false;
+        }
+      } catch (err) {
+        alert('Problem z połączeniem. Spróbuj ponownie.');
+        btn.innerText = "Wyślij potwierdzenie";
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
